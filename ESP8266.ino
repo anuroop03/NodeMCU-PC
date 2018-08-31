@@ -57,4 +57,12 @@ void loop()
     }
      */
 } 
+String checkClient (void)
+{
+  while(!client.available()) delay(1); 
+  String request = client.readStringUntil('\r');
+  request.remove(0, 5);
+  request.remove(request.length()-9,9);
+  return request;
+}
 
